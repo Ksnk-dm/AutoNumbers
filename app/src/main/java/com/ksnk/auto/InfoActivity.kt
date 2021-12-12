@@ -16,7 +16,7 @@ class InfoActivity : AppCompatActivity() {
     private var imageViewAuto: ImageView? = null
     private var digitsTextView: TextView? = null
     private var modelHomeTextView: TextView? = null
-    private var vinCode:TextView?=null
+    private var vinCode: TextView? = null
     private var toolbar: Toolbar? = null
     private var regionTextView: TextView? = null
     private var vendorTextView: TextView? = null
@@ -29,13 +29,11 @@ class InfoActivity : AppCompatActivity() {
     private var colorTextView: TextView? = null
     private var regCompanyTextView: TextView? = null
 
+    private var regOrg: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_info)
-        // fetchJson()
+
+    fun init() {
         toolbar = findViewById(R.id.toolbar)
-        setSupportActionBar(toolbar);
         imageViewAuto = findViewById(R.id.imageViewAuto)
         digitsTextView = findViewById(R.id.digitsTextView)
         modelHomeTextView = findViewById(R.id.modelHome)
@@ -50,7 +48,48 @@ class InfoActivity : AppCompatActivity() {
         colorTextView = findViewById(R.id.colorTextView)
         regCompanyTextView = findViewById(R.id.regCompanyTextView)
         vinCode = findViewById(R.id.vinTextView)
+    }
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_info)
+        // fetchJson()
+        init()
+        setSupportActionBar(toolbar);
+        setParams()
+
+
+    }
+
+    private fun setParams() {
+        val autoObj: Auto? = intent.getSerializableExtra("auto") as Auto
+        supportActionBar?.title = autoObj?.getDigits();
+
+        Picasso.get()
+            .load(autoObj?.getPhotoUrl())
+            .error(R.drawable.bg_gradient)
+            .fit()
+            .centerCrop()
+            .into(imageViewAuto);
+
+        digitsTextView?.text = autoObj?.getDigits()
+        vinCode?.text = autoObj?.getVin()
+        modelHomeTextView?.text = autoObj?.getVendor() + " " + autoObj?.getModel()
+        regionTextView?.text = autoObj?.getRegion()?.getName()
+        vendorTextView?.text = autoObj?.getVendor()
+        modelTextView?.text = autoObj?.getModel()
+        yearTextViewTextView?.text = autoObj?.getModelYear().toString()
+        classAutoTextView?.text = autoObj?.getOperations()?.get(0)?.getKind()?.getRu()
+        dateRegisterTextView?.text = autoObj?.getOperations()?.get(0)?.getRegisteredAt()
+        informRegisterTextView?.text = autoObj?.getOperations()?.get(0)?.getOperation()?.getRu()
+        orgTextView?.text = autoObj?.getOperations()?.get(0)?.getDepartment()
+        colorTextView?.text = autoObj?.getOperations()?.get(0)?.getColor()?.getRu()
+        regOrg = if (autoObj?.getOperations()?.get(0)?.getIsRegisteredToCompany() == true) {
+            "Да"
+        } else {
+            "Нет"
+        }
+        regCompanyTextView?.text = regOrg
         val auto: Auto = intent.getSerializableExtra("auto") as Auto
         supportActionBar?.title = auto.getDigits();
 
@@ -63,7 +102,7 @@ class InfoActivity : AppCompatActivity() {
 
         digitsTextView?.text = auto.getDigits()
         vinCode?.text = auto.getVin()
-        modelHomeTextView?.text=auto.getVendor()+" "+auto.getModel()
+        modelHomeTextView?.text = auto.getVendor() + " " + auto.getModel()
         regionTextView?.text = auto.getRegion()?.getName()
         vendorTextView?.text = auto.getVendor()
         modelTextView?.text = auto.getModel()
@@ -73,11 +112,6 @@ class InfoActivity : AppCompatActivity() {
         informRegisterTextView?.text = auto.getOperations()?.get(0)?.getOperation()?.getRu()
         orgTextView?.text = auto.getOperations()?.get(0)?.getDepartment()
         colorTextView?.text = auto.getOperations()?.get(0)?.getColor()?.getRu()
-        val regOrg: String = if (auto.getOperations()?.get(0)?.getIsRegisteredToCompany() == true) {
-            "Да"
-        } else {
-            "Нет"
-        }
         regCompanyTextView?.text = regOrg
     }
 
