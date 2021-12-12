@@ -1,5 +1,6 @@
 package com.ksnk.auto
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.os.Handler
 import android.widget.ImageView
@@ -57,33 +58,32 @@ class InfoActivity : AppCompatActivity() {
         init()
         setSupportActionBar(toolbar);
         setParams()
-
-
     }
 
+    @SuppressLint("SetTextI18n")
     private fun setParams() {
-        val autoObj: Auto? = intent.getSerializableExtra("auto") as Auto
-        supportActionBar?.title = autoObj?.getDigits();
+        val autoObj: Auto = intent.getSerializableExtra("auto") as Auto
+        supportActionBar?.title = autoObj.getDigits();
 
         Picasso.get()
-            .load(autoObj?.getPhotoUrl())
+            .load(autoObj.getPhotoUrl())
             .error(R.drawable.bg_gradient)
             .fit()
             .centerCrop()
             .into(imageViewAuto);
 
-        digitsTextView?.text = autoObj?.getDigits()
-        vinCode?.text = autoObj?.getVin()
-        modelHomeTextView?.text = autoObj?.getVendor() + " " + autoObj?.getModel()
-        regionTextView?.text = autoObj?.getRegion()?.getName()
-        vendorTextView?.text = autoObj?.getVendor()
-        modelTextView?.text = autoObj?.getModel()
-        yearTextViewTextView?.text = autoObj?.getModelYear().toString()
-        classAutoTextView?.text = autoObj?.getOperations()?.get(0)?.getKind()?.getRu()
-        dateRegisterTextView?.text = autoObj?.getOperations()?.get(0)?.getRegisteredAt()
-        informRegisterTextView?.text = autoObj?.getOperations()?.get(0)?.getOperation()?.getRu()
-        orgTextView?.text = autoObj?.getOperations()?.get(0)?.getDepartment()
-        colorTextView?.text = autoObj?.getOperations()?.get(0)?.getColor()?.getRu()
+        digitsTextView?.text = autoObj.getDigits()
+        vinCode?.text = autoObj.getVin()
+        modelHomeTextView?.text = autoObj.getVendor() + " " + autoObj.getModel()
+        regionTextView?.text = autoObj.getRegion()?.getName()
+        vendorTextView?.text = autoObj.getVendor()
+        modelTextView?.text = autoObj.getModel()
+        yearTextViewTextView?.text = autoObj.getModelYear().toString()
+        classAutoTextView?.text = autoObj.getOperations()?.get(0)?.getKind()?.getRu()
+        dateRegisterTextView?.text = autoObj.getOperations()?.get(0)?.getRegisteredAt()
+        informRegisterTextView?.text = autoObj.getOperations()?.get(0)?.getOperation()?.getRu()
+        orgTextView?.text = autoObj.getOperations()?.get(0)?.getDepartment()
+        colorTextView?.text = autoObj.getOperations()?.get(0)?.getColor()?.getRu()
         regOrg = if (autoObj?.getOperations()?.get(0)?.getIsRegisteredToCompany() == true) {
             "Да"
         } else {
