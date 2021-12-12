@@ -63,7 +63,7 @@ class InfoActivity : AppCompatActivity() {
         val client = OkHttpClient()
         request = request.newBuilder()
             .addHeader("Accept", "application/json")
-            .addHeader("X-Api-Key", "5f167a8aafb5be1dbc20dcbc546240ee")
+            .addHeader("X-Api-Key", "token")
             .build();
         client.newCall(request).enqueue(object : Callback {
             override fun onResponse(call: Call, response: Response) {
