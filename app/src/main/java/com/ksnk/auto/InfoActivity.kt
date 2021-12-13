@@ -138,7 +138,6 @@ class InfoActivity : AppCompatActivity() {
                 mainHandler.post {
                     val body = response.body?.string()
                     val gson = GsonBuilder().create()
-                    println("test"+body)
                    var error: Error = gson.fromJson(body, Error::class.java)
                     if(error.getError().isNullOrEmpty()){
                         var auto: Auto? = gson.fromJson(body, Auto::class.java)
