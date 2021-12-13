@@ -48,7 +48,7 @@ class Operation: Serializable {
 
     @SerializedName("operation")
     @Expose
-    private var operation: Operation__1? = null
+    private var operation: Operation2? = null
 
     @SerializedName("department")
     @Expose
@@ -162,11 +162,11 @@ class Operation: Serializable {
         this.model = model
     }
 
-    fun getOperation(): Operation__1? {
+    fun getOperation(): Operation2? {
         return operation
     }
 
-    fun setOperation(operation: Operation__1?) {
+    fun setOperation(operation: Operation2?) {
         this.operation = operation
     }
 

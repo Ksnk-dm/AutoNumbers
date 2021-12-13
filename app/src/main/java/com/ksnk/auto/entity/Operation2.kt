@@ -6,7 +6,7 @@ import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 
-class Operation__1 : Serializable {
+class Operation2 : Serializable {
     @SerializedName("ru")
     @Expose
     private var ru: String? = null

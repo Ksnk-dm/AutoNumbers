@@ -130,20 +130,18 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/textView4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="15dp"
-                    android:text="Регистрационные знаки транспортных средств Украины — специальный символический регистрационный знак (№), изготовленный (нанесённый) на металлические (или из другого материала) пластины (формы) или транспортное средство (ТС), используемое для учёта автомобилей, мотоциклов, грузовой, специальной, строительной техники и вооружения, прицепов."
+                    android:text="@string/info_text"
                     android:textColor="#000000"
                     android:textStyle="italic" />
 
                 <TextView
-                    android:id="@+id/textView5"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="Пример:"
+                    android:text="@string/example"
                     android:textColor="@color/black"
                     android:textStyle="bold" />
 
@@ -154,13 +152,12 @@
                     app:srcCompat="@drawable/numberexamble" />
 
                 <TextView
-                    android:id="@+id/textView6"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="15dp"
                     android:gravity="center"
-                    android:text="Для поиска информации про номер воспользуйтесь панелью"
-                    android:textColor="#000000"
+                    android:text="@string/instruct"
+                    android:textColor="@color/black"
                     android:textStyle="bold" />
             </LinearLayout>
 
@@ -179,13 +176,12 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/textView15"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:gravity="center"
-                        android:text="VIN код: "
-                        android:textColor="#000000"
+                        android:text="@string/vin"
+                        android:textColor="@color/black"
                         android:textStyle="bold" />
 
                     <TextView
@@ -194,8 +190,7 @@
                         android:layout_height="match_parent"
                         android:layout_gravity="center"
                         android:layout_weight="1"
-                        android:text="TextView"
-                        android:textColor="#000000"
+                        android:textColor="@color/black"
                         android:textSize="14sp" />
                 </LinearLayout>
 
@@ -208,8 +203,8 @@
                     <TextView
                         android:layout_width="180dp"
                         android:layout_height="match_parent"
-                        android:text="Марка:"
-                        android:textColor="#000000"
+                        android:text="@string/mark"
+                        android:textColor="@color/black"
                         android:textStyle="bold" />
 
                     <TextView
@@ -217,8 +212,7 @@
                         android:layout_width="50dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="TextView"
-                        android:textColor="#000000" />
+                        android:textColor="@color/black"/>
                 </LinearLayout>
 
                 <LinearLayout
@@ -230,8 +224,8 @@
 
                         android:layout_width="180dp"
                         android:layout_height="match_parent"
-                        android:text="Модель:"
-                        android:textColor="#000000"
+                        android:text="@string/model"
+                        android:textColor="@color/black"
                         android:textStyle="bold" />
 
                     <TextView
@@ -239,8 +233,7 @@
                         android:layout_width="50dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="TextView"
-                        android:textColor="#000000" />
+                        android:textColor="@color/black"/>
                 </LinearLayout>
 
                 <LinearLayout
@@ -251,8 +244,8 @@
                     <TextView
                         android:layout_width="180dp"
                         android:layout_height="match_parent"
-                        android:text="Цвет:"
-                        android:textColor="#000000"
+                        android:text="@string/color"
+                        android:textColor="@color/black"
                         android:textStyle="bold" />
 
                     <TextView
@@ -260,8 +253,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="TextView"
-                        android:textColor="#000000" />
+                        android:textColor="@color/black" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -273,8 +265,8 @@
 
                         android:layout_width="180dp"
                         android:layout_height="match_parent"
-                        android:text="Год производства:"
-                        android:textColor="#000000"
+                        android:text="@string/year"
+                        android:textColor="@color/black"
                         android:textStyle="bold" />
 
                     <TextView
@@ -282,8 +274,7 @@
                         android:layout_width="50dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="TextView"
-                        android:textColor="#000000" />
+                        android:textColor="@color/black" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -294,8 +285,8 @@
                     <TextView
                         android:layout_width="180dp"
                         android:layout_height="match_parent"
-                        android:text="Класс автомобиля"
-                        android:textColor="#000000"
+                        android:text="@string/class_auto"
+                        android:textColor="@color/black"
                         android:textStyle="bold" />
 
                     <TextView
@@ -303,8 +294,7 @@
                         android:layout_width="50dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="TextView"
-                        android:textColor="#000000" />
+                        android:textColor="@color/black" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -313,11 +303,10 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:id="@+id/textView2"
                         android:layout_width="180dp"
                         android:layout_height="match_parent"
-                        android:text="Регион:"
-                        android:textColor="#000000"
+                        android:text="@string/region"
+                        android:textColor="@color/black"
                         android:textStyle="bold" />
 
                     <TextView
@@ -325,8 +314,7 @@
                         android:layout_width="50dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="TextView"
-                        android:textColor="#000000" />
+                        android:textColor="@color/black" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -337,8 +325,8 @@
                     <TextView
                         android:layout_width="180dp"
                         android:layout_height="match_parent"
-                        android:text="Дата регистрации:"
-                        android:textColor="#000000"
+                        android:text="@string/date"
+                        android:textColor="@color/black"
                         android:textStyle="bold" />
 
                     <TextView
@@ -346,8 +334,7 @@
                         android:layout_width="50dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="TextView"
-                        android:textColor="#000000" />
+                        android:textColor="@color/black" />
                 </LinearLayout>
 
 
@@ -359,8 +346,8 @@
                     <TextView
                         android:layout_width="180dp"
                         android:layout_height="match_parent"
-                        android:text="Организация регистрации:"
-                        android:textColor="#000000"
+                        android:text="@string/org_reg"
+                        android:textColor="@color/black"
                         android:textStyle="bold" />
 
                     <TextView
@@ -368,8 +355,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="TextView"
-                        android:textColor="#000000" />
+                        android:textColor="@color/black" />
                 </LinearLayout>
 
 
@@ -381,7 +367,7 @@
                     <TextView
                         android:layout_width="180dp"
                         android:layout_height="match_parent"
-                        android:text="Регистрация в компании:"
+                        android:text="@string/company"
                         android:textColor="#000000"
                         android:textStyle="bold" />
 
@@ -390,8 +376,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="TextView"
-                        android:textColor="#000000" />
+                        android:textColor="@color/black" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -403,8 +388,8 @@
                         android:layout_width="180dp"
                         android:layout_height="match_parent"
                         android:layout_gravity="center"
-                        android:text="Информация регистрации:"
-                        android:textColor="#000000"
+                        android:text="@string/reg_info"
+                        android:textColor="@color/black"
                         android:textStyle="bold" />
 
                     <TextView
@@ -413,8 +398,7 @@
                         android:layout_height="match_parent"
                         android:layout_gravity="center"
                         android:gravity="center|center_vertical"
-                        android:text="TextView"
-                        android:textColor="#000000" />
+                        android:textColor="@color/black"/>
                 </LinearLayout>
             </LinearLayout>
 
@@ -450,7 +434,7 @@
                 android:layout_margin="15dp"
                 android:backgroundTint="@color/fixcolor2"
                 android:ems="10"
-                android:hint="Введите номер транспорта"
+                android:hint="@string/set_number_auto"
                 android:inputType="textPersonName"
                 android:textColor="@color/fixcolor2"
                 android:textColorHint="@color/fixcolor2" />
@@ -464,7 +448,7 @@
                 android:layout_marginBottom="20dp"
                 android:backgroundTint="@color/fixcolor2"
                 android:gravity="center"
-                android:text="Поиск"
+                android:text="@string/search"
                 android:textColor="@color/fixcolor1" />
         </LinearLayout>
 
