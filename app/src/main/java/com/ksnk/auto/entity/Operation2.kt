@@ -9,27 +9,11 @@ import java.io.Serializable
 class Operation2 : Serializable {
     @SerializedName("ru")
     @Expose
-    private var ru: String? = null
+    var ru: String? = null
 
     @SerializedName("ua")
     @Expose
-    private var ua: String? = null
-
-    fun getRu(): String? {
-        return ru
-    }
-
-    fun setRu(ru: String?) {
-        this.ru = ru
-    }
-
-    fun getUa(): String? {
-        return ua
-    }
-
-    fun setUa(ua: String?) {
-        this.ua = ua
-    }
+    var ua: String? = null
 
     override fun toString(): String {
         return "Operation__1(ru=$ru, ua=$ua)"
