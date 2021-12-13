@@ -42,6 +42,7 @@
         app:cardBackgroundColor="#00000000">
 
         <ImageButton
+            android:id="@+id/calcImageButton"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="?attr/selectableItemBackground"
@@ -66,6 +67,7 @@
         app:cardBackgroundColor="#00000000">
 
         <ImageButton
+            android:id="@+id/informImageButton"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="?attr/selectableItemBackground"

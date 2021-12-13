@@ -424,7 +424,7 @@
     <com.google.android.material.circularreveal.CircularRevealLinearLayout
         android:id="@+id/linear_layout_mini_player_editor"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="140dp"
         android:layout_alignBottom="@+id/viewpager"
         android:layout_gravity="bottom|center_horizontal"
         android:animateLayoutChanges="true"
