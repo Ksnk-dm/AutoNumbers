@@ -49,6 +49,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:cropToPadding="false"
+                        android:scaleType="centerCrop"
                         tools:src="@drawable/ic_launcher_background" />
 
                     <LinearLayout
@@ -101,7 +102,7 @@
                 app:layout_scrollFlags="scroll|enterAlways"
                 app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
                 app:subtitleTextColor="@color/fixcolor2"
-                app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+                android:theme="@style/MyThemeOverlay_Toolbar2"
                 app:titleTextColor="@color/fixcolor2" />
 
         </com.google.android.material.appbar.CollapsingToolbarLayout>
@@ -112,7 +113,7 @@
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="12dp"
+        android:layout_margin="8dp"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
 
@@ -149,7 +150,7 @@
                 <ImageView
                     android:id="@+id/imageView"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="80dp"
                     app:srcCompat="@drawable/numberexamble" />
 
                 <TextView
@@ -423,7 +424,7 @@
     <com.google.android.material.circularreveal.CircularRevealLinearLayout
         android:id="@+id/linear_layout_mini_player_editor"
         android:layout_width="match_parent"
-        android:layout_height="130dp"
+        android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/viewpager"
         android:layout_gravity="bottom|center_horizontal"
         android:animateLayoutChanges="true"
@@ -456,11 +457,15 @@
 
             <Button
                 android:id="@+id/buttonSearch"
-                android:layout_width="wrap_content"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:layout_width="121dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:layout_marginBottom="20dp"
+                android:backgroundTint="@color/fixcolor2"
                 android:gravity="center"
-                android:text="Поиск" />
+                android:text="Поиск"
+                android:textColor="@color/fixcolor1" />
         </LinearLayout>
 
 
