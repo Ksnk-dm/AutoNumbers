@@ -4,11 +4,13 @@ import android.annotation.SuppressLint
 import android.opengl.Visibility
 import android.os.Bundle
 import android.os.Handler
+import android.util.Log
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import com.google.gson.GsonBuilder
 import com.ksnk.auto.entity.Auto
 import com.squareup.picasso.Picasso
 import okhttp3.*
@@ -59,7 +61,7 @@ class InfoActivity : AppCompatActivity() {
         searchEditText = findViewById(R.id.searchNumberEditText)
         buttonSearch = findViewById(R.id.buttonSearch)
         buttonSearch?.setOnClickListener {
-            setParamsSearch()
+            searchGet(searchEditText?.text.toString())
         }
     }
 
@@ -84,18 +86,22 @@ class InfoActivity : AppCompatActivity() {
     }
 
     @SuppressLint("SetTextI18n")
-    private fun setParamsSearch() {
-        val autoObj: Auto = intent.getSerializableExtra("auto") as Auto
+    private fun setParamsSearch(auto: Auto) {
+        val autoObj: Auto = auto//intent.getSerializableExtra("auto") as Auto
         supportActionBar?.title = autoObj.getDigits()
         searhLinearLayout?.visibility = VISIBLE
         infoLinearLayout?.visibility = GONE
+        if (autoObj.getPhotoUrl().isNullOrEmpty()) {
+            imageViewAuto?.setImageResource(R.drawable.ic_placeholder)
+        } else {
+            Picasso.get()
+                .load(autoObj.getPhotoUrl())
+                .error(R.drawable.bg_gradient)
+                .fit()
+                .centerCrop()
+                .into(imageViewAuto)
+        }
 
-        Picasso.get()
-            .load(autoObj.getPhotoUrl())
-            .error(R.drawable.bg_gradient)
-            .fit()
-            .centerCrop()
-            .into(imageViewAuto);
 
         digitsTextView?.text = autoObj.getDigits()
         vinCode?.text = autoObj.getVin()
@@ -115,47 +121,50 @@ class InfoActivity : AppCompatActivity() {
             "Нет"
         }
         regCompanyTextView?.text = regOrg
-        val auto: Auto = intent.getSerializableExtra("auto") as Auto
-        supportActionBar?.title = auto.getDigits();
+        // val auto: Auto = intent.getSerializableExtra("auto") as Auto
+//        supportActionBar?.title = auto.getDigits();
 
-        Picasso.get()
-            .load(auto.getPhotoUrl())
-            .error(R.drawable.bg_gradient)
-            .fit()
-            .centerCrop()
-            .into(imageViewAuto);
-
-        digitsTextView?.text = auto.getDigits()
-        vinCode?.text = auto.getVin()
-        modelHomeTextView?.text = auto.getVendor() + " " + auto.getModel()
-        regionTextView?.text = auto.getRegion()?.getName()
-        vendorTextView?.text = auto.getVendor()
-        modelTextView?.text = auto.getModel()
-        yearTextViewTextView?.text = auto.getModelYear().toString()
-        classAutoTextView?.text = auto.getOperations()?.get(0)?.getKind()?.getRu()
-        dateRegisterTextView?.text = auto.getOperations()?.get(0)?.getRegisteredAt()
-        informRegisterTextView?.text = auto.getOperations()?.get(0)?.getOperation()?.getRu()
-        orgTextView?.text = auto.getOperations()?.get(0)?.getDepartment()
-        colorTextView?.text = auto.getOperations()?.get(0)?.getColor()?.getRu()
-        regCompanyTextView?.text = regOrg
+//        Picasso.get()
+//            .load(auto.getPhotoUrl())
+//            .error(R.drawable.bg_gradient)
+//            .fit()
+//            .centerCrop()
+//            .into(imageViewAuto);
+//
+//        digitsTextView?.text = auto.getDigits()
+//        vinCode?.text = auto.getVin()
+//        modelHomeTextView?.text = auto.getVendor() + " " + auto.getModel()
+//        regionTextView?.text = auto.getRegion()?.getName()
+//        vendorTextView?.text = auto.getVendor()
+//        modelTextView?.text = auto.getModel()
+//        yearTextViewTextView?.text = auto.getModelYear().toString()
+//        classAutoTextView?.text = auto.getOperations()?.get(0)?.getKind()?.getRu()
+//        dateRegisterTextView?.text = auto.getOperations()?.get(0)?.getRegisteredAt()
+//        informRegisterTextView?.text = auto.getOperations()?.get(0)?.getOperation()?.getRu()
+//        orgTextView?.text = auto.getOperations()?.get(0)?.getDepartment()
+//        colorTextView?.text = auto.getOperations()?.get(0)?.getColor()?.getRu()
+//        regCompanyTextView?.text = regOrg
     }
 
-    fun fetchJson() {
+    private fun searchGet(number: String) {
         var mainHandler = Handler(this@InfoActivity.mainLooper)
-        val url = "https://baza-gai.com.ua/nomer/KA0007XB"
+        val url = "https://baza-gai.com.ua/nomer/$number"
 
         var request = Request.Builder().url(url).build()
         val client = OkHttpClient()
         request = request.newBuilder()
             .addHeader("Accept", "application/json")
-            .addHeader("X-Api-Key", "token")
+            .addHeader("X-Api-Key", "5f167a8aafb5be1dbc20dcbc546240ee")
             .build();
         client.newCall(request).enqueue(object : Callback {
             override fun onResponse(call: Call, response: Response) {
                 mainHandler.post {
                     val body = response.body?.string()
                     println(body)
-//                    val gson = GsonBuilder().create()
+                    val gson = GsonBuilder().create()
+                    var auto: Auto? = gson.fromJson(body, Auto::class.java)
+                    setParamsSearch(auto!!)
+                    Log.d("search text get", auto.toString())
 //                    var weather: Air? = gson.fromJson(body, Air::class.java)
 //                    list?.add(weather!!)
 //                    recyclerView?.adapter = AirRecyclerViewAdapter(list!!)
