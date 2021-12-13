@@ -3,8 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/dmitriy.k/Desktop/AutoNumbers/app/src/main/res/drawable/bg_gradient.xml" value="0.33055555555555555" />
         <entry key="..\:/Users/dmitriy.k/Desktop/AutoNumbers/app/src/main/res/layout/activity_info.xml" value="0.33" />
-        <entry key="..\:/Users/dmitriy.k/Desktop/AutoNumbers/app/src/main/res/layout/activity_main.xml" value="0.20871327254305977" />
+        <entry key="..\:/Users/dmitriy.k/Desktop/AutoNumbers/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Users/dmitriy.k/Desktop/AutoNumbers/app/src/main/res/layout/ripple.xml" value="0.20871327254305977" />
       </map>
     </option>

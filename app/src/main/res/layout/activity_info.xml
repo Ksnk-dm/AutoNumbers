@@ -21,13 +21,12 @@
             android:background="@color/white"
             android:fitsSystemWindows="true"
             app:collapsedTitleTextAppearance="@style/GreyText"
-            app:contentScrim="@color/white"
+            app:contentScrim="@color/fixcolor1"
             app:expandedTitleMarginEnd="48dp"
             app:expandedTitleMarginStart="48dp"
             app:expandedTitleTextAppearance="@style/TransparentText"
             app:layout_scrollFlags="scroll|exitUntilCollapsed"
             app:statusBarScrim="@android:color/transparent">
-
 
 
             <LinearLayout
@@ -100,7 +99,9 @@
                 app:layout_collapseMode="pin"
                 app:layout_scrollFlags="scroll|enterAlways"
                 app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-                app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
+                app:subtitleTextColor="@color/fixcolor2"
+                app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+                app:titleTextColor="@color/fixcolor2" />
 
         </com.google.android.material.appbar.CollapsingToolbarLayout>
 
@@ -120,10 +121,55 @@
             app:cardCornerRadius="12dp">
 
             <LinearLayout
+                android:id="@+id/info_linear_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:animateLayoutChanges="true"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="15dp"
+                    android:text="Регистрационные знаки транспортных средств Украины — специальный символический регистрационный знак (№), изготовленный (нанесённый) на металлические (или из другого материала) пластины (формы) или транспортное средство (ТС), используемое для учёта автомобилей, мотоциклов, грузовой, специальной, строительной техники и вооружения, прицепов."
+                    android:textColor="#000000"
+                    android:textStyle="italic" />
+
+                <TextView
+                    android:id="@+id/textView5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Пример:"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/numberexamble" />
+
+                <TextView
+                    android:id="@+id/textView6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="15dp"
+                    android:gravity="center"
+                    android:text="Для поиска информации про номер воспользуйтесь панелью"
+                    android:textColor="#000000"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/search_linear_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:orientation="vertical">
+                android:animateLayoutChanges="true"
+                android:orientation="vertical"
+                android:visibility="invisible">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -150,7 +196,6 @@
                         android:textColor="#000000"
                         android:textSize="14sp" />
                 </LinearLayout>
-
 
 
                 <LinearLayout
@@ -304,7 +349,6 @@
                 </LinearLayout>
 
 
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -327,7 +371,6 @@
                 </LinearLayout>
 
 
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -348,6 +391,7 @@
                         android:text="TextView"
                         android:textColor="#000000" />
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -378,12 +422,12 @@
     <com.google.android.material.circularreveal.CircularRevealLinearLayout
         android:id="@+id/linear_layout_mini_player_editor"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="130dp"
         android:layout_alignBottom="@+id/viewpager"
         android:layout_gravity="bottom|center_horizontal"
         android:animateLayoutChanges="true"
         android:animationCache="true"
-        android:background="@color/purple_200"
+        android:background="@color/fixcolor1"
         android:clickable="true"
         android:focusable="auto"
         android:orientation="horizontal"
@@ -398,23 +442,25 @@
             android:orientation="vertical">
 
             <EditText
-                android:id="@+id/editTextTextPersonName"
+                android:id="@+id/searchNumberEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="15dp"
+                android:backgroundTint="@color/fixcolor2"
                 android:ems="10"
+                android:hint="Введите номер транспорта"
                 android:inputType="textPersonName"
-                android:text="Name" />
+                android:textColor="@color/fixcolor2"
+                android:textColorHint="@color/fixcolor2" />
 
             <Button
-                android:id="@+id/button"
+                android:id="@+id/buttonSearch"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:gravity="center"
                 android:text="Поиск" />
         </LinearLayout>
-
 
 
     </com.google.android.material.circularreveal.CircularRevealLinearLayout>

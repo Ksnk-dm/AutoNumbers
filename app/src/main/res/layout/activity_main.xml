@@ -12,8 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="12dp"
-        app:cardBackgroundColor="#45000000"
-        app:cardCornerRadius="15dp">
+        app:cardBackgroundColor="#00000000">
 
         <ImageButton
             android:id="@+id/searchImageButton"

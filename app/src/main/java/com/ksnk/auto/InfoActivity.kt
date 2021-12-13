@@ -1,10 +1,12 @@
 package com.ksnk.auto
 
 import android.annotation.SuppressLint
+import android.opengl.Visibility
 import android.os.Bundle
 import android.os.Handler
-import android.widget.ImageView
-import android.widget.TextView
+import android.view.View.GONE
+import android.view.View.VISIBLE
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import com.ksnk.auto.entity.Auto
@@ -29,11 +31,14 @@ class InfoActivity : AppCompatActivity() {
     private var orgTextView: TextView? = null
     private var colorTextView: TextView? = null
     private var regCompanyTextView: TextView? = null
-
+    private var infoLinearLayout: LinearLayout? = null
+    private var searhLinearLayout: LinearLayout? = null
     private var regOrg: String? = null
+    private var searchEditText: EditText? = null
+    private var buttonSearch: Button? = null
 
 
-    fun init() {
+    private fun init() {
         toolbar = findViewById(R.id.toolbar)
         imageViewAuto = findViewById(R.id.imageViewAuto)
         digitsTextView = findViewById(R.id.digitsTextView)
@@ -49,6 +54,13 @@ class InfoActivity : AppCompatActivity() {
         colorTextView = findViewById(R.id.colorTextView)
         regCompanyTextView = findViewById(R.id.regCompanyTextView)
         vinCode = findViewById(R.id.vinTextView)
+        infoLinearLayout = findViewById(R.id.info_linear_layout)
+        searhLinearLayout = findViewById(R.id.search_linear_layout)
+        searchEditText = findViewById(R.id.searchNumberEditText)
+        buttonSearch = findViewById(R.id.buttonSearch)
+        buttonSearch?.setOnClickListener {
+            setParamsSearch()
+        }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -57,8 +69,13 @@ class InfoActivity : AppCompatActivity() {
         // fetchJson()
         init()
         setSupportActionBar(toolbar);
+
         supportActionBar?.setDisplayHomeAsUpEnabled(true);
-        setParams()
+
+        imageViewAuto?.setImageResource(R.drawable.searchinfo)
+        supportActionBar?.title = "Поиск по гос номеру"
+        //  setParams()
+
     }
 
     override fun onSupportNavigateUp(): Boolean {
@@ -67,9 +84,11 @@ class InfoActivity : AppCompatActivity() {
     }
 
     @SuppressLint("SetTextI18n")
-    private fun setParams() {
+    private fun setParamsSearch() {
         val autoObj: Auto = intent.getSerializableExtra("auto") as Auto
-        supportActionBar?.title = autoObj.getDigits();
+        supportActionBar?.title = autoObj.getDigits()
+        searhLinearLayout?.visibility = VISIBLE
+        infoLinearLayout?.visibility = GONE
 
         Picasso.get()
             .load(autoObj.getPhotoUrl())
