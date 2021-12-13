@@ -3,7 +3,6 @@ package com.ksnk.auto
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.os.Handler
-import android.util.Log
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.widget.*
@@ -90,33 +89,33 @@ class InfoActivity : AppCompatActivity() {
     @SuppressLint("SetTextI18n")
     private fun setParamsSearch(auto: Auto) {
         val autoObj: Auto = auto
-        supportActionBar?.title = autoObj.getDigits()
+        supportActionBar?.title = autoObj.digits
         searchLinearLayout?.visibility = VISIBLE
         infoLinearLayout?.visibility = GONE
-        if (autoObj.getPhotoUrl().isNullOrEmpty()) {
+        if (autoObj.photoUrl.isNullOrEmpty()) {
             imageViewAuto?.setImageResource(R.drawable.ic_placeholder)
         } else {
             Picasso.get()
-                .load(autoObj.getPhotoUrl())
+                .load(autoObj.photoUrl)
                 .error(R.drawable.bg_gradient)
                 .fit()
                 .centerCrop()
                 .into(imageViewAuto)
         }
 
-        digitsTextView?.text = autoObj.getDigits()
-        vinCode?.text = autoObj.getVin()
-        modelHomeTextView?.text = autoObj.getVendor() + " " + autoObj.getModel()
-        regionTextView?.text = autoObj.getRegion()?.getName()
-        vendorTextView?.text = autoObj.getVendor()
-        modelTextView?.text = autoObj.getModel()
-        yearTextViewTextView?.text = autoObj.getModelYear().toString()
-        classAutoTextView?.text = autoObj.getOperations()?.get(0)?.getKind()?.getRu()
-        dateRegisterTextView?.text = autoObj.getOperations()?.get(0)?.getRegisteredAt()
-        informRegisterTextView?.text = autoObj.getOperations()?.get(0)?.getOperation()?.getRu()
-        orgTextView?.text = autoObj.getOperations()?.get(0)?.getDepartment()
-        colorTextView?.text = autoObj.getOperations()?.get(0)?.getColor()?.getRu()
-        regOrg = if (autoObj?.getOperations()?.get(0)?.getIsRegisteredToCompany() == true) {
+        digitsTextView?.text = autoObj.digits
+        vinCode?.text = autoObj.vin
+        modelHomeTextView?.text = autoObj.vendor + " " + autoObj.model
+        regionTextView?.text = autoObj.region?.name
+        vendorTextView?.text = autoObj.vendor
+        modelTextView?.text = autoObj.model
+        yearTextViewTextView?.text = autoObj.modelYear.toString()
+        classAutoTextView?.text = autoObj.operations?.get(0)?.kind?.ru
+        dateRegisterTextView?.text = autoObj.operations?.get(0)?.registeredAt
+        informRegisterTextView?.text = autoObj.operations?.get(0)?.operation?.ru
+        orgTextView?.text = autoObj.operations?.get(0)?.department
+        colorTextView?.text = autoObj.operations?.get(0)?.color?.ru
+        regOrg = if (autoObj?.operations?.get(0)?.isRegisteredToCompany == true) {
             resources.getString(R.string.yes)
         } else {
             resources.getString(R.string.no)
@@ -140,7 +139,7 @@ class InfoActivity : AppCompatActivity() {
                     val body = response.body?.string()
                     val gson = GsonBuilder().create()
                     var error: Error = gson.fromJson(body, Error::class.java)
-                    if (error.getError().isNullOrEmpty()) {
+                    if (error.error.isNullOrEmpty()) {
                         var auto: Auto? = gson.fromJson(body, Auto::class.java)
                         setParamsSearch(auto!!)
                     } else {
