@@ -38,6 +38,8 @@ class InfoActivity : AppCompatActivity() {
     private var regOrg: String? = null
     private var searchEditText: EditText? = null
     private var buttonSearch: Button? = null
+    private val token = "5f167a8aafb5be1dbc20dcbc546240ee"
+    private val header = "application/json"
 
 
     private fun init() {
@@ -62,7 +64,7 @@ class InfoActivity : AppCompatActivity() {
         buttonSearch = findViewById(R.id.buttonSearch)
         buttonSearch?.setOnClickListener {
             if (searchEditText?.text.isNullOrEmpty()) {
-                Toast.makeText(applicationContext, "Введите номер", Toast.LENGTH_LONG).show()
+                Toast.makeText(applicationContext, R.string.set_number, Toast.LENGTH_LONG).show()
             } else {
                 searchGet(searchEditText?.text.toString())
             }
@@ -76,8 +78,7 @@ class InfoActivity : AppCompatActivity() {
         setSupportActionBar(toolbar);
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         imageViewAuto?.setImageResource(R.drawable.searchinfo)
-        supportActionBar?.title = "Поиск по гос. номеру"
-        //  setParams()
+        supportActionBar?.title = resources.getString(R.string.search_number)
 
     }
 
@@ -88,7 +89,7 @@ class InfoActivity : AppCompatActivity() {
 
     @SuppressLint("SetTextI18n")
     private fun setParamsSearch(auto: Auto) {
-        val autoObj: Auto = auto//intent.getSerializableExtra("auto") as Auto
+        val autoObj: Auto = auto
         supportActionBar?.title = autoObj.getDigits()
         searchLinearLayout?.visibility = VISIBLE
         infoLinearLayout?.visibility = GONE
@@ -116,9 +117,9 @@ class InfoActivity : AppCompatActivity() {
         orgTextView?.text = autoObj.getOperations()?.get(0)?.getDepartment()
         colorTextView?.text = autoObj.getOperations()?.get(0)?.getColor()?.getRu()
         regOrg = if (autoObj?.getOperations()?.get(0)?.getIsRegisteredToCompany() == true) {
-            "Да"
+            resources.getString(R.string.yes)
         } else {
-            "Нет"
+            resources.getString(R.string.no)
         }
         regCompanyTextView?.text = regOrg
     }
@@ -130,20 +131,24 @@ class InfoActivity : AppCompatActivity() {
         var request = Request.Builder().url(url).build()
         val client = OkHttpClient()
         request = request.newBuilder()
-            .addHeader("Accept", "application/json")
-            .addHeader("X-Api-Key", "5f167a8aafb5be1dbc20dcbc546240ee")
+            .addHeader("Accept", header)
+            .addHeader("X-Api-Key", token)
             .build();
         client.newCall(request).enqueue(object : Callback {
             override fun onResponse(call: Call, response: Response) {
                 mainHandler.post {
                     val body = response.body?.string()
                     val gson = GsonBuilder().create()
-                   var error: Error = gson.fromJson(body, Error::class.java)
-                    if(error.getError().isNullOrEmpty()){
+                    var error: Error = gson.fromJson(body, Error::class.java)
+                    if (error.getError().isNullOrEmpty()) {
                         var auto: Auto? = gson.fromJson(body, Auto::class.java)
                         setParamsSearch(auto!!)
                     } else {
-                        Toast.makeText(applicationContext, "Авто не найдено", Toast.LENGTH_LONG).show()
+                        Toast.makeText(
+                            applicationContext,
+                            resources.getString(R.string.not_found),
+                            Toast.LENGTH_LONG
+                        ).show()
                     }
                 }
             }

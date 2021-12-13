@@ -22,10 +22,10 @@ class MainActivity : AppCompatActivity() {
         buttonInform = findViewById(R.id.informImageButton)
         buttonSearch = findViewById(R.id.searchImageButton)
         buttonInform?.setOnClickListener {
-            Toast.makeText(applicationContext, "Пункт в разработке", Toast.LENGTH_SHORT).show()
+            Toast.makeText(applicationContext, resources.getString(R.string.develop), Toast.LENGTH_SHORT).show()
         }
         buttonCalc?.setOnClickListener {
-            Toast.makeText(applicationContext, "Пункт в разработке", Toast.LENGTH_SHORT).show()
+            Toast.makeText(applicationContext, resources.getString(R.string.develop), Toast.LENGTH_SHORT).show()
         }
         buttonSearch?.setOnClickListener {
             var intent = Intent(this, InfoActivity::class.java)
