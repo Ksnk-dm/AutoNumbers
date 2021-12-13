@@ -5,11 +5,12 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
+import android.widget.ImageButton
 import com.google.gson.GsonBuilder
 import com.ksnk.auto.entity.Auto
 
 class MainActivity : AppCompatActivity() {
-    private var buttonSearch: Button? = null
+    private var buttonSearch: ImageButton? = null
     var json = "{\n" +
             "  \"digits\": \"KA0007XB\",\n" +
             "  \"vin\": \"WBA7########57838\", // VIN-код сейчас доступен только для регистраций 2021 года\n" +
@@ -81,7 +82,7 @@ class MainActivity : AppCompatActivity() {
         val gson = GsonBuilder().create()
         var auto: Auto? = gson.fromJson(json, Auto::class.java)
         Log.d("auto", auto?.getModel().toString())
-        buttonSearch = findViewById(R.id.searchButton)
+        buttonSearch = findViewById(R.id.searchImageButton)
         buttonSearch?.setOnClickListener {
             var intent = Intent(this, InfoActivity::class.java)
             intent.putExtra("auto", auto)

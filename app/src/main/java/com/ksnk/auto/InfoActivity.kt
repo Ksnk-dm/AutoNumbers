@@ -57,7 +57,13 @@ class InfoActivity : AppCompatActivity() {
         // fetchJson()
         init()
         setSupportActionBar(toolbar);
+        supportActionBar?.setDisplayHomeAsUpEnabled(true);
         setParams()
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
     }
 
     @SuppressLint("SetTextI18n")

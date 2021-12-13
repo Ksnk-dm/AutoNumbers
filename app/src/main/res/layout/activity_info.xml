@@ -28,6 +28,8 @@
             app:layout_scrollFlags="scroll|exitUntilCollapsed"
             app:statusBarScrim="@android:color/transparent">
 
+
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -126,20 +128,136 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="horizontal">
+                    android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/textView15"
-                        android:layout_width="180dp"
-                        android:layout_height="match_parent"
-                        android:text="VIN код: " />
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:text="VIN код: "
+                        android:textColor="#000000"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/vinTextView"
                         android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:text="TextView"
+                        android:textColor="#000000"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="180dp"
+                        android:layout_height="match_parent"
+                        android:text="Марка:"
+                        android:textColor="#000000"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/vendorTextView"
+                        android:layout_width="50dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="TextView" />
+                        android:text="TextView"
+                        android:textColor="#000000" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+
+                        android:layout_width="180dp"
+                        android:layout_height="match_parent"
+                        android:text="Модель:"
+                        android:textColor="#000000"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/modelTextView"
+                        android:layout_width="50dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="TextView"
+                        android:textColor="#000000" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="180dp"
+                        android:layout_height="match_parent"
+                        android:text="Цвет:"
+                        android:textColor="#000000"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/colorTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="TextView"
+                        android:textColor="#000000" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+
+                        android:layout_width="180dp"
+                        android:layout_height="match_parent"
+                        android:text="Год производства:"
+                        android:textColor="#000000"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/yearTextView"
+                        android:layout_width="50dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="TextView"
+                        android:textColor="#000000" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="180dp"
+                        android:layout_height="match_parent"
+                        android:text="Класс автомобиля"
+                        android:textColor="#000000"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/classAutoTextView"
+                        android:layout_width="50dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="TextView"
+                        android:textColor="#000000" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -151,14 +269,17 @@
                         android:id="@+id/textView2"
                         android:layout_width="180dp"
                         android:layout_height="match_parent"
-                        android:text="Регион:" />
+                        android:text="Регион:"
+                        android:textColor="#000000"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/regionTextView"
                         android:layout_width="50dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="TextView" />
+                        android:text="TextView"
+                        android:textColor="#000000" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -169,89 +290,20 @@
                     <TextView
                         android:layout_width="180dp"
                         android:layout_height="match_parent"
-                        android:text="Марка:" />
-
-                    <TextView
-                        android:id="@+id/vendorTextView"
-                        android:layout_width="50dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="TextView" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal">
-
-                    <TextView
-
-                        android:layout_width="180dp"
-                        android:layout_height="match_parent"
-                        android:text="Модель:" />
-
-                    <TextView
-                        android:id="@+id/modelTextView"
-                        android:layout_width="50dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="TextView" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal">
-
-                    <TextView
-
-                        android:layout_width="180dp"
-                        android:layout_height="match_parent"
-                        android:text="Год производства:" />
-
-                    <TextView
-                        android:id="@+id/yearTextView"
-                        android:layout_width="50dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="TextView" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="180dp"
-                        android:layout_height="match_parent"
-                        android:text="Класс автомобиля" />
-
-                    <TextView
-                        android:id="@+id/classAutoTextView"
-                        android:layout_width="50dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="TextView" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="180dp"
-                        android:layout_height="match_parent"
-                        android:text="Дата регистрации:" />
+                        android:text="Дата регистрации:"
+                        android:textColor="#000000"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/dateRegisterTextView"
                         android:layout_width="50dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="TextView" />
+                        android:text="TextView"
+                        android:textColor="#000000" />
                 </LinearLayout>
+
+
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -261,32 +313,20 @@
                     <TextView
                         android:layout_width="180dp"
                         android:layout_height="match_parent"
-                        android:text="Информация регистрации:" />
-
-                    <TextView
-                        android:id="@+id/informRegisterTextView"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="TextView" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="180dp"
-                        android:layout_height="match_parent"
-                        android:text="Организация регистрации:" />
+                        android:text="Организация регистрации:"
+                        android:textColor="#000000"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/orgTextView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="TextView" />
+                        android:text="TextView"
+                        android:textColor="#000000" />
                 </LinearLayout>
+
+
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -296,36 +336,87 @@
                     <TextView
                         android:layout_width="180dp"
                         android:layout_height="match_parent"
-                        android:text="Цвет:" />
-
-                    <TextView
-                        android:id="@+id/colorTextView"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="TextView" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="180dp"
-                        android:layout_height="match_parent"
-                        android:text="Регистрация в компании:" />
+                        android:text="Регистрация в компании:"
+                        android:textColor="#000000"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/regCompanyTextView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="TextView" />
+                        android:text="TextView"
+                        android:textColor="#000000" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="180dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:text="Информация регистрации:"
+                        android:textColor="#000000"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/informRegisterTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:gravity="center|center_vertical"
+                        android:text="TextView"
+                        android:textColor="#000000" />
                 </LinearLayout>
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>
     </androidx.core.widget.NestedScrollView>
+
+    <com.google.android.material.circularreveal.CircularRevealLinearLayout
+        android:id="@+id/linear_layout_mini_player_editor"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_alignBottom="@+id/viewpager"
+        android:layout_gravity="bottom|center_horizontal"
+        android:animateLayoutChanges="true"
+        android:animationCache="true"
+        android:background="@color/purple_200"
+        android:clickable="true"
+        android:focusable="auto"
+        android:orientation="horizontal"
+        android:visibility="visible"
+        app:layout_behavior="com.google.android.material.transformation.FabTransformationSheetBehavior">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/editTextTextPersonName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="Name" />
+
+            <Button
+                android:id="@+id/button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="Поиск" />
+        </LinearLayout>
+
+
+
+    </com.google.android.material.circularreveal.CircularRevealLinearLayout>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
