@@ -2,7 +2,7 @@
 [![Android build](https://github.com/Avonion/android_MusicPlayer/actions/workflows/main_build.yml/badge.svg)](https://github.com/Ksnk-dm/AutoNumbers/blob/master/.github/workflows/main_build.yml)
  
  Gradle: 4.2.2
- Kotlin: 1.5.31
+ Kotlin: 1.6.0
 
 ### Dependencies
 * Kotlin
