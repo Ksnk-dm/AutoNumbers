@@ -33,4 +33,28 @@
     <string name="reg_info">Информация регистрации:</string>
     <string name="set_number_auto">Введите номер транспорта</string>
     <string name="search">Поиск</string>
+    <string-array name="animals">
+        <item>Кот</item>
+        <item>Кошка</item>
+        <item>Котёнок</item>
+        <item>Животное</item>
+    </string-array>
+    <string-array name="toplivo">
+        <item>Кот</item>
+        <item>Кошка</item>
+        <item>Котёнок</item>
+        <item>Животное</item>
+    </string-array>
+    <string-array name="year">
+        <item>Кот</item>
+        <item>Кошка</item>
+        <item>Котёнок</item>
+        <item>Животное</item>
+    </string-array>
+    <string-array name="currency">
+        <item>Кот</item>
+        <item>Кошка</item>
+        <item>Котёнок</item>
+        <item>Животное</item>
+    </string-array>
 </resources>
